@@ -12,7 +12,7 @@ def detect(save_img=False):
     webcam = source == '0' or source.startswith('rtsp') or source.startswith('http') or source.endswith('.txt')
 
     # Initialize
-    device = torch_utils.select_device(device='cpu' if ONNX_EXPORT else opt.device)
+    device = torch_utils.select_device(device='0' if ONNX_EXPORT else opt.device) # 'cpu'
     if os.path.exists(out):
         shutil.rmtree(out)  # delete output folder
     os.makedirs(out)  # make new output folder
