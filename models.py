@@ -158,7 +158,7 @@ class YOLOLayer(nn.Module):
             stride = [32, 16, 8][yolo_index]  # stride of this layer
             nx = int(img_size[1] / stride)  # number x grid points
             ny = int(img_size[0] / stride)  # number y grid points
-            create_grids(self, img_size, (nx, ny))
+            create_grids(self, img_size, (nx, ny), device='cuda')
 
     def forward(self, p, img_size, var=None):
         if ONNX_EXPORT:
